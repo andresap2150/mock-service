@@ -115,26 +115,4 @@ public class GreetingController {
     	return formFieldList;
     }
 
-    private JSONObject returnJson() {
-    	JSONObject json = new JSONObject();
-    	JSONObject jsonAux = new JSONObject();
-    	try {
-			json.put("Prioridad", new JSONArray(new Object[]{"Conformar familia", "Viajar", "Estudiar", "Ahorrar/Invertir", "Impulsar su carrera", "Otras"}));
-			json.put("Genero", new JSONArray(new Object[]{"Masculino", "Femenino", "Otro"}));
-			json.put("CompartirVivienda", new JSONArray(new Object[]{"Hijos", "Padres", "Mascotas", "Pareja", "Hermanos", "Amigos", "Otros"}));
-			json.put("Ocupacion", new JSONArray(new Object[]{"Estudiar", "Trabajar", "Estudiar y Trabajar", "Desempleo", "otros"}));
-			json.put("TransportePrincipal", new JSONArray(new Object[]{"Transporte Público", "Transporte Propio"}));
-			json.put("TransportePropio", new JSONArray(new Object[]{"2 ruedas", "4 Ruedas"}));
-			json.put("EstilosVida", new JSONArray(new Object[]{}));
-			jsonAux.put("Comuna 1- Paris", new JSONArray(new Object[]{"Los Sauces","La Pradera","Paris central","José Antonio Galán","Campo Grande","Tierra Verde","El Cafetal","La Esmeralda","La Maruchenga","Salvador Allende"}));
-			jsonAux.put("Comuna 2- Madera", new JSONArray(new Object[] {"Barrio Nuevo","Cabañitas","La Cabaña","La Madera","La Florida","Gran Avenida","San José Obrero","Amazonía"}));
-			//jsonAux.put(name, value)
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	
-    	return json;
-    	
-    }
 }
