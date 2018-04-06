@@ -9,7 +9,7 @@ public class FormWithValues {
 	private String[] TransportePrincipal;
 	private String[] TransportePropio;
 	private String[] EstilosVida;
-	private String[][] Zonas;
+	private Zone Zonas;
 	public String[] getPrioridad() {
 		return prioridad;
 	}
@@ -52,13 +52,12 @@ public class FormWithValues {
 	public void setEstilosVida(String[] estilosVida) {
 		EstilosVida = estilosVida;
 	}
-	public String[][] getZonas() {
+	public Zone getZonas() {
 		return Zonas;
 	}
-	public void setZonas(String[][] zonas) {
+	public void setZonas(Zone zonas) {
 		Zonas = zonas;
 	}
-	
 	public FormWithValues() {
 		super();
 		// TODO Auto-generated constructor stub
