@@ -3,6 +3,8 @@ package demo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLong;
+
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,8 +23,8 @@ public class GreetingController {
     }
     
     @RequestMapping(value = "/consulta/consultarRecomendacion",method = RequestMethod.POST)
-    public String recommendation() {
-    	return "OK KO";
+    public String recommendation(@RequestBody FilledForm input) {
+    	return "OK KO"+input.getGenero();
     }
     
     @RequestMapping("/consulta/infoFormularioConsulta")
