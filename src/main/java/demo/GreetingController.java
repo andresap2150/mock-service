@@ -4,11 +4,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+
 
 @RestController
 public class GreetingController {
@@ -28,10 +33,37 @@ public class GreetingController {
     }
     
     @RequestMapping("/consulta/infoFormularioConsulta")
-    public FormField[] getInfoForm() {
-    	FormField[] formInfo = returnInfo();
+    public FormWithValues getInfoForm() {
+    	FormWithValues formInfo = returnFormWithValues();    	
     	return formInfo;
     }
+    
+    private FormWithValues returnFormWithValues() {
+    	FormWithValues values = new FormWithValues();
+    	
+    	String[] prioridad = {"Conformar familia", "Viajar", "Estudiar", "Ahorrar/Invertir", "Impulsar su carrera", "Otras"};
+    	values.setPrioridad(prioridad);
+    	
+    	String[] genero = {"Masculino", "Femenino", "Otro"};
+    	values.setGenero(genero);
+    	
+    	String[] compartirVivienda = {"Hijos", "Padres", "Mascotas", "Pareja", "Hermanos", "Amigos", "Otros"};
+    	values.setCompartirVivienda(compartirVivienda);
+    	
+    	String[] ocupacion = {"Estudiar", "Trabajar", "Estudiar y Trabajar", "Desempleo", "otros"};
+    	values.setOcupacion(ocupacion);
+    	
+    	String[] transportePpal = {"Transporte Público", "Transporte Propio"};
+    	values.setTransportePrincipal(transportePpal);
+    	
+    	String[] transportePro = {"2 ruedas", "4 Ruedas"};
+    	values.setTransportePropio(transportePro);
+    	    	
+    	String[] estiloVida = {};
+    	values.setEstilosVida(estiloVida);
+    	
+    	return values;
+	}
     
     private FormField[] returnInfo() {
     	ArrayList<FormField> formFieldArrayList= new ArrayList<FormField>();
@@ -81,5 +113,28 @@ public class GreetingController {
     	Object[] formFieldObjectArray = formFieldArrayList.toArray();
     	FormField[] formFieldList = Arrays.copyOf(formFieldObjectArray, formFieldObjectArray.length, FormField[].class);
     	return formFieldList;
+    }
+
+    private JSONObject returnJson() {
+    	JSONObject json = new JSONObject();
+    	JSONObject jsonAux = new JSONObject();
+    	try {
+			json.put("Prioridad", new JSONArray(new Object[]{"Conformar familia", "Viajar", "Estudiar", "Ahorrar/Invertir", "Impulsar su carrera", "Otras"}));
+			json.put("Genero", new JSONArray(new Object[]{"Masculino", "Femenino", "Otro"}));
+			json.put("CompartirVivienda", new JSONArray(new Object[]{"Hijos", "Padres", "Mascotas", "Pareja", "Hermanos", "Amigos", "Otros"}));
+			json.put("Ocupacion", new JSONArray(new Object[]{"Estudiar", "Trabajar", "Estudiar y Trabajar", "Desempleo", "otros"}));
+			json.put("TransportePrincipal", new JSONArray(new Object[]{"Transporte Público", "Transporte Propio"}));
+			json.put("TransportePropio", new JSONArray(new Object[]{"2 ruedas", "4 Ruedas"}));
+			json.put("EstilosVida", new JSONArray(new Object[]{}));
+			jsonAux.put("Comuna 1- Paris", new JSONArray(new Object[]{"Los Sauces","La Pradera","Paris central","José Antonio Galán","Campo Grande","Tierra Verde","El Cafetal","La Esmeralda","La Maruchenga","Salvador Allende"}));
+			jsonAux.put("Comuna 2- Madera", new JSONArray(new Object[] {"Barrio Nuevo","Cabañitas","La Cabaña","La Madera","La Florida","Gran Avenida","San José Obrero","Amazonía"}));
+			//jsonAux.put(name, value)
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	return json;
+    	
     }
 }
