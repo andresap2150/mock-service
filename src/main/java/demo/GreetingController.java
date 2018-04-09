@@ -63,13 +63,13 @@ public class GreetingController {
     	String[] pregunta1 = {"En mi tiempo libre me gusta realizar alguna actividad física, ya sea ir al gimnasio, salir a trotar, nadar, entre otros","En mi tiempo libre prefiero quedarme en casa descansando","En mi tiempo libre me encanta ir a eventos culturales como cine, teatro, conciertos o museos","La mejor opción para divertirme es visitar un centro comercial"};
     	estiloVida.setEscoge_la_opcion_con_la_que_mas_te_identificas_y_con_la_que_menos_te_identificas(pregunta1);
     	String[] pregunta2 = {"Prefieres vivir cerca a una vía principal para tener fácil acceso a los medios de transporte.","Prefieres vivir en un entorno tranquilo y alejado de ruidos aunque esté retirado de los lugares que frecuentas diariamente","Prefieres vivir cerca a los lugares que frecuentas diariamente"};
-    	estiloVida.setPregunta2(pregunta2);
+    	estiloVida.setA_la_hora_de_elegir_tu_vivienda(pregunta2);
     	String[] pregunta3 = {"Ahorrar no es sólo guardar, sino saber gastar","La vida es corta. Me gusta darme gusto y consentir a los míos"};
-    	estiloVida.setPregunta3(pregunta3);
+    	estiloVida.setCuando_piensas_en_tu_dinero(pregunta3);
     	String[] pregunta4 = {"Tener contacto con la naturaleza","Reunirme en casa con mi familia y amigos","Celebrar las fechas especiales como grados, cumpleaños, entre otros"};
-    	estiloVida.setPregunta4(pregunta4);
+    	estiloVida.setSi_tuvieras_las_siguientes_opciones_cual_seria_la_mas_importante_para_ti(pregunta4);
     	String[] pregunta5 = {"Me encantaría tener un espacio para trabajar desde la casa.","Elegiría tener un espacio para mis plantas y/o mascotas.","Tendría un espacio para divertirme, como un cuarto de juegos para mis hijos, un cuarto de televisión o hobbies.","Quisiera tener un lugar amplio para almacenar."};
-    	estiloVida.setPregunta5(pregunta5);
+    	estiloVida.setSi_tuvieras_un_bono_adicional_para_tu_vivienda(pregunta5);
     	values.setEstilosVida(estiloVida);
     	
     	Zone zonas = new Zone();
