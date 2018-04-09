@@ -8,8 +8,14 @@ public class FormWithValues {
 	private String[] Ocupacion;
 	private String[] TransportePrincipal;
 	private String[] TransportePropio;
-	private String[] EstilosVida;
+	private LifesStyles EstilosVida;
 	private Zone Zonas;
+	public LifesStyles getEstilosVida() {
+		return EstilosVida;
+	}
+	public void setEstilosVida(LifesStyles estilosVida) {
+		EstilosVida = estilosVida;
+	}
 	public String[] getPrioridad() {
 		return prioridad;
 	}
@@ -45,12 +51,6 @@ public class FormWithValues {
 	}
 	public void setTransportePropio(String[] transportePropio) {
 		TransportePropio = transportePropio;
-	}
-	public String[] getEstilosVida() {
-		return EstilosVida;
-	}
-	public void setEstilosVida(String[] estilosVida) {
-		EstilosVida = estilosVida;
 	}
 	public Zone getZonas() {
 		return Zonas;
