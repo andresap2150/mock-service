@@ -1,5 +1,8 @@
 package demo;
 
+import java.math.BigDecimal;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLong;
@@ -33,6 +36,12 @@ public class GreetingController {
     public FormWithValues getInfoForm() {
     	FormWithValues formInfo = returnFormWithValues();    	
     	return formInfo;
+    }
+    
+    @RequestMapping("/consulta/detalleInmueble")
+    public PropertyInfo getInfoProperty(@RequestParam String id) {
+    	PropertyInfo property = returnPropertyInfo();
+    	return property;
     }
     
     /**
@@ -175,54 +184,44 @@ public class GreetingController {
     	return values;
 	}
     
-    private FormField[] returnInfo() {
-    	ArrayList<FormField> formFieldArrayList= new ArrayList<FormField>();
-    	
-    	FormField prioridad = new FormField();
-    	prioridad.setCampo("Prioridad");
-    	String[] valores = {"Conformar familia", "Viajar", "Estudiar", "Ahorrar/Invertir", "Impulsar su carrera", "Otras"};
-    	prioridad.setValores(valores);
-    	formFieldArrayList.add(prioridad);
-    	
-    	FormField genero = new FormField();
-    	genero.setCampo("Genero");
-    	String[] generoVal = {"Masculino", "Femenino", "Otro"};
-    	genero.setValores(generoVal);
-    	formFieldArrayList.add(genero);
-    	
-    	FormField compartirVivienda = new FormField();
-    	compartirVivienda.setCampo("CompartirVivienda");
-    	String[] comparVal = {"Hijos", "Padres", "Mascotas", "Pareja", "Hermanos", "Amigos", "Otros"};
-    	compartirVivienda.setValores(comparVal);
-    	formFieldArrayList.add(compartirVivienda);
-    	
-    	FormField ocupacion = new FormField();
-    	ocupacion.setCampo("Ocupacion");
-    	String[] ocupacionVal = {"Estudiar", "Trabajar", "Estudiar y Trabajar", "Desempleo", "otros"};
-    	ocupacion.setValores(ocupacionVal);
-    	formFieldArrayList.add(ocupacion);
-    	
-    	FormField transportePpal = new FormField();
-    	transportePpal.setCampo("TransportePrincipal");
-    	String[] transporteVal = {"Transporte Público", "Transporte Propio"};
-    	transportePpal.setValores(transporteVal);
-    	formFieldArrayList.add(transportePpal);
-    	
-    	FormField transportePro = new FormField();
-    	transportePro.setCampo("TransportePropio");
-    	String[] transProV = {"2 ruedas", "4 Ruedas"};
-    	transportePro.setValores(transProV);
-    	formFieldArrayList.add(transportePro);
-    	
-    	FormField estiloVida = new FormField();
-    	estiloVida.setCampo("EstilosVida");
-    	String[] estiloVidaV = {};
-    	estiloVida.setValores(estiloVidaV);
-    	formFieldArrayList.add(estiloVida);
-    	
-    	Object[] formFieldObjectArray = formFieldArrayList.toArray();
-    	FormField[] formFieldList = Arrays.copyOf(formFieldObjectArray, formFieldObjectArray.length, FormField[].class);
-    	return formFieldList;
+    private PropertyInfo returnPropertyInfo() {
+    	PropertyInfo prop = new PropertyInfo();
+    	prop.setId(1L);
+    	URL url = null;    	
+    	try {
+			url = new URL("https://3l1iad18k2t92kvydgixead1-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/casawinchester01-702x395.jpg");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	prop.setImagen(url);
+    	prop.setNombre("Mansion Winchester");
+    	prop.setValor(new BigDecimal(100_000_000.0));
+    	prop.setTipoInmueble("Usada - Embrujada");
+    	prop.setUbicacion("San Jose > California");
+    	prop.setArea(2400);
+    	prop.setDireccion("525 S Winchester Blvd");
+    	prop.setNumeroHabitaciones(40);
+    	prop.setNumeroBanos(52);
+    	prop.setParqueadero(true);
+    	prop.setCuartoUtil(true);
+    	prop.setCocinaAbierta(true);
+    	prop.setBalcon(true);
+    	prop.setPiscina(true);
+    	prop.setGimnasio(false);
+    	prop.setZonaHumeda(true);
+    	prop.setZonaHumeda(true);
+    	prop.setCuartoNinos(true);
+    	prop.setPorteria(true);
+    	prop.setSalonSocial(true);
+    	prop.setZonasComunes(true);
+    	prop.setAntiguedad(true);
+    	prop.setPetFriendly(true);
+    	prop.setSenderosEcologicos(true);
+    	prop.setCanchasDeportivas(true);
+    	prop.setAccesoMetro(false);
+    	prop.setEstrato(7);
+    	prop.setRango(true);
+    	return prop;
     }
-
 }
